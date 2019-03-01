@@ -13,10 +13,24 @@ var articleSchema = new Schema({
     type: String,
     required: true
   },
+  saved: {
+    type: Boolean,
+    required: true,
+    default: false
+  },
+  deleted: {
+    type: Boolean,
+    required: true,
+    default: false
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  },
   note: {
     type: Schema.Types.ObjectId,
     ref: "Note"
-  }
+  },
 });
 
 var Article = mongoose.model("Article", articleSchema);

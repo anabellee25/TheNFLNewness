@@ -3,9 +3,16 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var noteSchema = new Schema({
-  title: String,
-  body: String
+  text: {
+    type: String,
+    required: true
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  }
 });
+
 
 var Note = mongoose.model("Note", noteSchema);
 
