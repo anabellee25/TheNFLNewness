@@ -1,8 +1,9 @@
-const axios = require("axios");
-const db = require("../models");
-const express = require("express");
-const app = express();
-const cheerio = require("cheerio");
+
+var axios = require("axios");
+var db = require("../models");
+var express = require("express");
+var app = express();
+var cheerio = require("cheerio");
 
   // Scrape route
   app.get("/scrape", function(req, res) {

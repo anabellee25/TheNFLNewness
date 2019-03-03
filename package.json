@@ -1,7 +1,7 @@
 {
-  "name": "express",
+  "name": "nflnewness",
   "version": "1.0.0",
-  "description": "",
+  "description": "### All the news that's fit to scrape Scraping the NFL world for the latest headlines. WHO'S GETTING TRADED? WHO'S INJURED NOW? WORST DRAFT PICK EVER! Add your notes and thoughts on an article for others to see! Save save-worthy articles or delete them if you think they're trash and fake news.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -20,9 +20,11 @@
   "dependencies": {
     "axios": "^0.18.0",
     "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.4",
     "express-handlebars": "^3.0.2",
     "mongojs": "^2.6.0",
     "mongoose": "^5.4.15",
     "morgan": "^1.9.1"
-  }
+  },
+  "devDependencies": {}
 }
