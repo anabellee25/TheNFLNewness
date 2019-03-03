@@ -23,9 +23,10 @@ var articleSchema = new Schema({
     required: true,
     default: false
   },
-  date: {
-    type: Date,
-    default: Date.now
+  image: {
+    type: String,
+    required: false,
+    default: "/images/nfl.png"
   },
   note: {
     type: Schema.Types.ObjectId,
