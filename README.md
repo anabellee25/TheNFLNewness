@@ -7,9 +7,9 @@ Save save-worthy articles or delete them if you think they're trash and fake new
 
 
 # How To Use
-### Clone Repo Locally and run npm install
-### cd into the repo and run node server.js
-### Enjoy!
+  * Clone Repo Locally and run npm install
+  * cd into the repo and run node server.js
+  *  Enjoy!
 
 # Technologies Used
   * JavaScript
