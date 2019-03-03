@@ -3,21 +3,22 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
+    <link rel="shortcut icon" href="images/scraper.png" />
     <title>The NFL Newness</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css"/>
     
   </head>
 
   <body>
     
-      <nav class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="#">Mongo News Scraper (Sportingnews.com)</a>
+      <nav id="navbar" class="navbar navbar-dark bg-dark navbar-expand-lg navbar-dark bg-light">
+          <img id="scraper" src="images/scraper.png">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -34,19 +35,20 @@
           </div>
       </nav>
     
-    <div class="container-fluid">
-    <!-- <div id="wrapper"> -->
-        <h1>The NFL Newness</h1>
+    <div id="mainFeed" class="container-fluid">
+        <div class="container" id="heading">
+            <h1>The NFL Newness</h1>
+            <h6>Catch up on the latest news around the NFL brought to you by Sportingnews.com.</h6>
+            <h6>Save articles and add notes for other users to see!</h6>
+            <h6>Not seeing the latest headlines? Click Retrieve New Articles to load the latest news.</h6>
+                <div id="headerButtons">     
+                        <button type="button" class=" headerButtons btn btn-info" id="scrapeNew">Retrieve New Articles</button>
+                        <button type="button" class=" headerButtons btn btn-info" id="deleteAll">Clear Unsaved Articles</button>
+                        <button type="button" class=" headerButtons btn btn-info" id="sportnews">Sportingnews.com</button>
+                </div>
+        </div>
       <div id="articles">
-          <div id="instAndButttons">
-            <h6>Click "Retrieve New Articles" to get new articles.</h6>
-            <h6>Save each article and/or add notes to each article.</h6>
-            <button type="button" class="btn btn-danger" id="scraper">Retrieve New Articles</button>
-            <button type="button" class="btn btn-info" id="deleteAll">Clear Unsaved Articles</button>
-            <button type="button" class="btn btn-info" id="sportnews">Sportingnews.com</button>
-          </div>
-          <br>
-          <br>
+    
       </div>
     </div>
 
@@ -82,7 +84,17 @@
       </div>
     </div>
   </div>
-    <!-- JS to run on page after loading -->
+    <!-- js -->
     <script src="./js/nfl.js"></script>
   </body>
+
+  <footer>
+    <p>
+     The NFL Newness 2019 &copy; 
+    </p>
+    <p href="https://github.com/anabellee25">Github</p>
+                    
+  </footer>
+
+
   </html>

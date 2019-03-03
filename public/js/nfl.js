@@ -1,12 +1,12 @@
 // Grab the articles json and append each item to html.
 $.getJSON("/articles", function(data) {
     for (var i = 0; i < data.length; i++) {
-      cssID = `#${data[i]._id}`
+      newArticle = `#${data[i]._id}`
       $("#articles").append("<div class='media' id='"+ data[i]._id + "'></div>")
-      $(cssID).append("<img src='" + data[i].image + "' class='mr-3' alt='" + data[i].title + "'>");
-      $(cssID).append("<div class='media-body'><h5><a href='" + data[i].link + "'>" + data[i].title + "</a></h5>" + "</div>");
-      $(cssID).append("<button type='button' class='btn btn-warning' id='note' data-toggle='modal data-target='#notesModal' data-id='" + data[i]._id + "'>NOTE</buttton>");
-      $(cssID).append("<button type='button' class='btn btn-success' id='saveArticle' data-id='" + data[i]._id + "'>SAVE</buttton>");
+      $(newArticle).append("<img id='articleImg' src='" + data[i].image + "' class='mr-3' alt='" + data[i].title + "'>");
+      $(newArticle).append("<div class='media-body'><h5><a id='articleTitle' href='" + data[i].link + "'>" + data[i].title + "</a></h5>" + "</div>");
+      $(newArticle).append("<button type='button' class='btn btn-warning' id='note' data-toggle='modal data-target='#notesModal' data-id='" + data[i]._id + "'>NOTE</button>");
+      $(newArticle).append("<button type='button' class='btn btn-success' id='saveArticle' data-id='" + data[i]._id + "'>SAVE</button>");
     }
   });
   
@@ -16,7 +16,7 @@ $.getJSON("/articles", function(data) {
   })
   
   // SCRAPE
-  $(document).on("click", "#scraper", function() {
+  $(document).on("click", "#scrapeNew", function() {
     $.ajax({
       method: "GET",
       url: "/scrape"
@@ -33,12 +33,12 @@ $.getJSON("/articles", function(data) {
     }).then(function(data){
       $("#articles").empty();
       for (var i = 0; i < data.length; i++) {
-        cssID = `#${data[i]._id}`
+        newArticle = `#${data[i]._id}`
         $("#articles").append("<div class='media' id='"+ data[i]._id + "'></div>")
-        $(cssID).append("<img src='" + data[i].image + "' class='mr-3' alt='" + data[i].title + "'>");
-        $(cssID).append("<div class='media-body'><h5><a href='" + data[i].link + "'>" + data[i].title + "</a></h5>" + data[i].summary + "</div>");
-        $(cssID).append("<button type='button' class='btn btn-warning' id='note' data-toggle='modal data-target='#notesModal' data-id='" + data[i]._id + "'>NOTE</buttton>");
-        $(cssID).append("<button type='button' class='btn btn-secondary' id='deleteOne' data-id='" + data[i]._id + "'>DELETE</buttton>");
+        $(newArticle).append("<img id='articleImg' src='" + data[i].image + "' class='mr-3' alt='" + data[i].title + "'>");
+        $(newArticle).append("<div class='media-body'><h5><a id='articleTitle' href='" + data[i].link + "'>" + data[i].title + "</a></h5></div>");
+        $(newArticle).append("<button type='button' class='btn btn-warning' id='note' data-toggle='modal data-target='#notesModal' data-id='" + data[i]._id + "'>NOTE</button>");
+        $(newArticle).append("<button type='button' class='btn btn-secondary' id='deleteOne' data-id='" + data[i]._id + "'>DELETE</button>");
         // $("#articles").append("<br>");
       }
     })
@@ -47,27 +47,27 @@ $.getJSON("/articles", function(data) {
   // SAVE ARTICLES TO SAVED ARTICLES "PAGE"
   $(document).on("click", "#saveArticle", function() {
     var thisID = $(this).attr("data-id")
-    var cssID = `#${thisID}`
+    var newArticle = `#${thisID}`
     $.ajax({
       method: "POST",
       url: "/articles/saveOneArticle/" + thisID
     }).then(function(savedOne){
       console.log(savedOne);
-      $(cssID).empty();
-      $(cssID).text("SAVED");
+      $(newArticle).empty();
+      $(newArticle).text("SAVED");
     })
   })
   
   // DELETE ONE ARTICLE
   $(document).on("click", "#deleteOne", function() {
     var thisID = $(this).attr("data-id")
-    var cssID = `#${thisID}`
+    var newArticle = `#${thisID}`
     $.ajax({
       method: "DELETE",
       url: "/articles/deleteOne/" + thisID
     }).then(function(deleteOne){
-      $(cssID).empty();
-      $(cssID).text("DELETED");
+      $(newArticle).empty();
+      $(newArticle).text("DELETED");
     })
   });
   
@@ -82,7 +82,6 @@ $.getJSON("/articles", function(data) {
       })
     });
   
-  // TODO - swithc this to somethign that floats above.
   $(document).on("click", "#note", function() {
     $("#notesModalLabel").val("");
     $("#titleinput").val("");

@@ -26,7 +26,7 @@ var articleSchema = new Schema({
   image: {
     type: String,
     required: false,
-    default: "/images/nfl.png"
+    default: "./public/images/nfl.png"
   },
   note: {
     type: Schema.Types.ObjectId,
